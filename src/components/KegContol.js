@@ -25,12 +25,20 @@ class KegControl extends React.Component {
     }));
   }
 
+  handleAddingNewKegToList = (newKeg) => {
+    const newKegList = this.state.allKombuchaList.concat(newKeg);
+    this.setState({
+      allKombuchaList: newKegList,
+      formVisibleOnPage: false
+    });
+  }
+
 
   render(){
     let currentlyVisibleState= null;
     let buttonText = null;
     if(this.state.formVisibleOnPage){
-      currentlyVisibleState = <NewKegForm />
+      currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "Return to Keg list";
     } else {
       currentlyVisibleState = <KegList kegList={this.state.allKombuchaList} />
