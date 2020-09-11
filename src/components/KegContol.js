@@ -2,6 +2,7 @@ import React from 'react';
 import KegList from './KegList';
 import NewKegForm from './NewKegFrom';
 import KegDetail from './KegDetail';
+import EditKegForm from './EditKegForm';
 
 class KegControl extends React.Component {
   constructor(props){
@@ -72,10 +73,23 @@ class KegControl extends React.Component {
     })
   }
 
+  handleEditingKegInList = (kegToEdit) =>{
+    const editedKombuchaList = this.state.allKombuchaList.filter(keg => keg.id !== this.state.selectedKeg.id).concat(kegToEdit);
+    this.setState({
+      allKombuchaList: editedKombuchaList,
+      editingKeg: false,
+      selectedKeg: null
+    })
+
+  }
+
   render(){
     let currentlyVisibleState= null;
     let buttonText = null;
-    if(this.state.selectedKeg !== null) {
+    if(this.state.editingKeg){
+      currentlyVisibleState = <EditKegForm selectedKeg={this.state.selectedKeg} onEditKeg={this.handleEditingKegInList}/>
+
+    } else if(this.state.selectedKeg !== null) {
       currentlyVisibleState = <KegDetail selectedKeg={this.state.selectedKeg} onClickingEdit={this.handleEditClick} />
       buttonText = "Return to Keg list";
     } else if(this.state.formVisibleOnPage){
