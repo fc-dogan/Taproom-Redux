@@ -1,5 +1,6 @@
 import React from 'react';
 import ReusableForm from './ReusableForm';
+import { v4 } from 'uuid';
 
 function NewKegForm(props){
 
@@ -11,6 +12,7 @@ function NewKegForm(props){
       price: event.target.price.value,
       flavor: event.target.flavor.value,
       quantity: event.target.quantity.value,
+      id: v4()
     })
   } 
 
