@@ -84,6 +84,14 @@ class KegControl extends React.Component {
 
   }
 
+  handleDeletingKegInList = (id) => {
+    const newKombuchaList = this.state.allKombuchaList.filter(keg => keg.id !== id);
+    this.setState({
+      allKombuchaList: newKombuchaList,
+      selectedKeg: null
+    })
+  }
+
   render(){
     let currentlyVisibleState= null;
     let buttonText = null;
