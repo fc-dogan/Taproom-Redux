@@ -7,6 +7,15 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
+      allKombuchaList: [
+        {
+          name: "Synergy",
+          brand: "GT's",
+          price: 3,
+          flavor: "Cosmic Cranberry",
+          quantity: 20,
+        }
+      ]
     }
   }
 
@@ -24,7 +33,7 @@ class KegControl extends React.Component {
       currentlyVisibleState = <NewKegForm />
       buttonText = "Return to Keg list";
     } else {
-      currentlyVisibleState = <KegList />
+      currentlyVisibleState = <KegList kegList={this.state.allKombuchaList} />
       buttonText = "Add Keg";
     }
     return (
