@@ -50,8 +50,13 @@ class KegControl extends React.Component {
 
   handleDecreamentKegQuantity = (id) =>{
     const newselectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id )[0];
-    const decrasedQuantity = newselectedKeg.quantity -1;
-    const updatedKeg = {...newselectedKeg, quantity: decrasedQuantity}
+    const decrasedQuantity =() => {
+    if(newselectedKeg.quantity > 0){
+      return newselectedKeg.quantity -=1;
+    }  else {
+       return newselectedKeg.quantity
+    }};
+    const updatedKeg = {...newselectedKeg, quantity: decrasedQuantity()}
     const newKegList = this.state.allKombuchaList.filter( keg =>
       keg.id != id).concat(updatedKeg)
     this.setState({
