@@ -14,7 +14,6 @@ class KegControl extends React.Component {
           brand: "GT's",
           price: 3,
           flavor: "Cosmic Cranberry",
-          quantity: 20,
         }
       ],
       selectedKeg: null,
