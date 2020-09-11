@@ -17,6 +17,7 @@ class KegControl extends React.Component {
         }
       ],
       selectedKeg: null,
+      editingKeg: false
     }
   }
 
@@ -51,25 +52,31 @@ class KegControl extends React.Component {
   handleDecreamentKegQuantity = (id) =>{
     const newselectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id )[0];
     const decrasedQuantity =() => {
-    if(newselectedKeg.quantity > 0){
+    if(newselectedKeg.quantity > 1){
       return newselectedKeg.quantity -=1;
     }  else {
-       return newselectedKeg.quantity
+       return "Out of Stock"
     }};
     const updatedKeg = {...newselectedKeg, quantity: decrasedQuantity()}
     const newKegList = this.state.allKombuchaList.filter( keg =>
-      keg.id != id).concat(updatedKeg)
+      keg.id !== id).concat(updatedKeg)
     this.setState({
       allKombuchaList: newKegList
     })
   }
 
+  handleEditClick = () => {
+    console.log("handleEditClick reached!");
+    this.setState({
+      editingKeg: true
+    })
+  }
 
   render(){
     let currentlyVisibleState= null;
     let buttonText = null;
     if(this.state.selectedKeg !== null) {
-      currentlyVisibleState = <KegDetail selectedKeg={this.state.selectedKeg} />
+      currentlyVisibleState = <KegDetail selectedKeg={this.state.selectedKeg} onClickingEdit={this.handleEditClick} />
       buttonText = "Return to Keg list";
     } else if(this.state.formVisibleOnPage){
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
