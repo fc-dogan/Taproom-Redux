@@ -1,8 +1,13 @@
 import React from 'react';
+import Keg from './Keg';
 
 function KegList(){
   return (
-    <p>Keg list</p>
+    <React.Fragment>
+      <hr />
+      <p>Keg list</p>
+      <Keg />
+    </React.Fragment>
   )
 }
 
