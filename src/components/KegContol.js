@@ -43,7 +43,7 @@ class KegControl extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    const newSelectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id);
+    const newSelectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id)[0];
     this.setState({
       selectedKeg: newSelectedKeg
     })
