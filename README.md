@@ -8,19 +8,21 @@
 
 _An application built in React to track a taproom's taps by name, brand, price, flavor, and quantity. The application utilizes a tap list, a new tap form, and tap-specific details view to monitor inventory._
 
-<!-- _View the live site at:_  -->
-
 
 ### Component Diagram
 
 <img src="tap-room diagram.jpg" width="550px" />
 
 ## Specification user stories:
-* As a user, I want to see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and flavor
-* As a user, I want to submit a form to add a new keg to a list.
-* As a user, I want to be able to click on a keg to see its detail page.
-* As a user, I want to see how many pints are left in a keg.
-* As a user, I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should * not be able to go below 0.
+* A user is able to see a list/menu of all available kegs. For each keg, user able to see its name, price and quantity.
+* A user is able to submit a form to add a new keg to the list.
+* A user is able to click on a keg to see its detail page.
+* A user is able to see how many pints are left in a keg.(A full keg has 124 pints.)
+* A user is able to click a button next to a keg whenever a pint is sold. This decrease the number of pints left by 1. 
+* A user is able to see "Out of Stock" when keg is empty.
+* A user is able to delete a keg.
+* A user is able to edit a keg's properties.
+
 
 ## Setup/Installation Requirements
 
@@ -45,8 +47,8 @@ _Please visit the [Node.js website](https://nodejs.org/en/download/) for install
 _Clone this repository via Terminal using the following commands:_
 ```
 cd desktop
-<!-- git clone https:// -->
-<!-- cd merch-site -->
+<!-- git clone https://github.com/fc-dogan/Tap-room -->
+<!-- cd Tap-room -->
 ```
 
 _Next, install npm at the project's root directory, and start the server:_
