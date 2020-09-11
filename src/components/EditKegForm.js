@@ -10,22 +10,22 @@ function EditKegForm(props){
     props.onEditKeg({
       name: event.target.name.value,
       brand: event.target.brand.value,
-      price: event.target.price.value,
+      price: parseInt(event.target.price.value),
       flavor: event.target.flavor.value,
-      quantity: 124,
-      id: props.keg.id
+      quantity: props.selectedKeg.quantity,
+      id: props.selectedKeg.id
     })
   } 
 
   return (
     <React.Fragment>
-      <ReusableForm formSubmissionHandler={handleEditKegFormSubmission} buttonText="Add" />
+      <ReusableForm formSubmissionHandler={handleEditKegFormSubmission} buttonText="Update" />
     </React.Fragment>
   )
 }
 
 EditKegForm.propTypes = {
-  keg: PropTypes.object,
+  selectedKeg: PropTypes.object,
   onEditKeg: PropTypes.func
 }
 
