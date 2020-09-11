@@ -1,6 +1,7 @@
 import React from 'react';
 import KegList from './KegList';
 import NewKegForm from './NewKegFrom';
+import KegDetail from './KegDetail';
 
 class KegControl extends React.Component {
   constructor(props){
@@ -15,7 +16,8 @@ class KegControl extends React.Component {
           flavor: "Cosmic Cranberry",
           quantity: 20,
         }
-      ]
+      ],
+      selectedKeg: null,
     }
   }
 
@@ -33,15 +35,25 @@ class KegControl extends React.Component {
     });
   }
 
+  handleChangingSelectedKeg = (id) => {
+    const newSelectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id);
+    this.setState({
+      selectedKeg: newSelectedKeg
+    })
+  }
+
 
   render(){
     let currentlyVisibleState= null;
     let buttonText = null;
-    if(this.state.formVisibleOnPage){
+    if(this.state.selectedKeg !== null) {
+      currentlyVisibleState = <KegDetail selectedKeg={this.state.selectedKeg} />
+      buttonText = "Return to Keg list";
+    } else if(this.state.formVisibleOnPage){
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "Return to Keg list";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.allKombuchaList} />
+      currentlyVisibleState = <KegList kegList={this.state.allKombuchaList} onKegSelection={this.handleChangingSelectedKeg} />
       buttonText = "Add Keg";
     }
     return (
