@@ -1,68 +1,78 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# _Tap Room _
 
-## Available Scripts
+#### _A React application for kombucha store to track their kegs._ 
 
-In the project directory, you can run:
+#### _September 11, 2020 | Fatma C. Dogan_
 
-### `yarn start`
+## Description
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+_An application built in React to track a taproom's taps by name, brand, price, flavor, and quantity. The application utilizes a tap list, a new tap form, and tap-specific details view to monitor inventory._
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- _View the live site at:_  -->
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Component Diagram
 
-### `yarn build`
+<img src="tap-room diagram.jpg" width="550px" />
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Specification user stories:
+* As a user, I want to see a list/menu of all available kegs. For each keg, I want to see its name, brand, price and flavor
+* As a user, I want to submit a form to add a new keg to a list.
+* As a user, I want to be able to click on a keg to see its detail page.
+* As a user, I want to see how many pints are left in a keg. Hint: A full keg has roughly 124 pints.
+* As a user, I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should * not be able to go below 0.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Setup/Installation Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Node install
 
-### `yarn eject`
+###### For macOS:
+_If Homebrew is not installed on your computer already, then install Homebrew by entering the following two commands in Terminal:_
+* $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+* $ echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_Install Git with the following command:_
+* $ brew install git
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_Next, install Node.js by entering the following command in Terminal:_
+* $ brew install node
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+###### For Windows:
+_Please visit the [Node.js website](https://nodejs.org/en/download/) for installation instructions._
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Install this application
 
-## Learn More
+_Clone this repository via Terminal using the following commands:_
+```
+cd desktop
+<!-- git clone https:// -->
+<!-- cd merch-site -->
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_Next, install npm at the project's root directory, and start the server:_
+```
+npm install
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+_If everything is correct, the localhost site should open automatically_
 
-### Code Splitting
+_View the contents of this project by opening in VSCode:_
+```
+code .
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Technologies Used
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* _React_
+* _JavaScript_
+* _WebPack_
+* _CSS_
+* _Git_
 
-### Making a Progressive Web App
+### License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+*This webpage is licensed under the MIT license.*
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright &copy; 2020 **_Fatma C. Dogan_**
