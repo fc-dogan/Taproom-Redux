@@ -12,7 +12,8 @@ function NewKegForm(props){
       brand: event.target.brand.value,
       price: parseInt(event.target.price.value),
       flavor: event.target.flavor.value,
-      quantity: 124,
+      quantity: 4,
+      quantityMessage: null,
       id: v4()
     })
   } 

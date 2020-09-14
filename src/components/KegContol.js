@@ -15,6 +15,7 @@ class KegControl extends React.Component {
           brand: "GT's",
           price: 3,
           flavor: "Cosmic Cranberry",
+          quantity: 120
         }
       ],
       selectedKeg: null,
@@ -53,13 +54,14 @@ class KegControl extends React.Component {
 
   handleDecreamentKegQuantity = (id) =>{
     const newselectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id )[0];
-    const decrasedQuantity =() => {
+    let updatedKeg = null;
     if(newselectedKeg.quantity > 1){
-      return newselectedKeg.quantity -=1;
+      updatedKeg = {...newselectedKeg, quantity: newselectedKeg.quantity - 1}
+       
     }  else {
-       return "Out of Stock"
-    }};
-    const updatedKeg = {...newselectedKeg, quantity: decrasedQuantity()}
+      updatedKeg = {...newselectedKeg, quantity:null, quantityMessage: "Out of Stock"}
+    };
+    
     const newKegList = this.state.allKombuchaList.filter( keg =>
       keg.id !== id).concat(updatedKeg)
     this.setState({
@@ -110,7 +112,6 @@ class KegControl extends React.Component {
     }
     return (
       <React.Fragment>
-        <p>Keg control</p>
         {currentlyVisibleState}
         <button onClick={this.handleClick} >{buttonText}</button>
       </React.Fragment>
