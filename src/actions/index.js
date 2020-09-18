@@ -28,11 +28,17 @@ export const sellKeg = (id) => ({
 export const editingKeg = () => ({
   type: a.EDITING_KEG
 });
-export const selectKeg = (id) => {
-  return {
+export const selectKeg = (kegData) => {
+  const { name, brand, price, flavor, quantity, id } = kegData;
+    return {
     type: a.SELECT_KEG,
-    id
-  }
+    name: name,
+    brand: brand,
+    price: price,
+    flavor: flavor,
+    quantity: quantity,
+    id: id
+  };
 };
 export const unselectKeg = () => ({
   type: a.UNSELECT_KEG

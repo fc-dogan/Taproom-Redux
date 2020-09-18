@@ -63,7 +63,8 @@ class KegControl extends React.Component {
   handleChangingSelectedKeg = (id) => {
     const { dispatch } = this.props;
     // const newSelectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id)[0];
-    const action =a.selectKeg(id);
+    const newSelectedKeg = this.props.allKombuchaList[id]
+    const action =a.selectKeg(newSelectedKeg);
     dispatch(action);
     // this.setState({
     //   selectedKeg: newSelectedKeg
