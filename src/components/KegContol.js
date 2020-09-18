@@ -70,7 +70,6 @@ class KegControl extends React.Component {
   }
 
   handleEditClick = () => {
-    console.log("handleEditClick reached!");
     this.setState({
       editingKeg: true
     })
@@ -83,7 +82,6 @@ class KegControl extends React.Component {
       editingKeg: false,
       selectedKeg: null
     })
-
   }
 
   handleDeletingKegInList = (id) => {
