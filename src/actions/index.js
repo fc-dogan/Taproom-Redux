@@ -12,3 +12,10 @@ export const addKeg = (kegData) =>{
     id: id
   }
 }
+
+export const deleteKeg = (id) => {
+  return {
+    type: a.DELETE_KEG,
+    id
+  }
+}
