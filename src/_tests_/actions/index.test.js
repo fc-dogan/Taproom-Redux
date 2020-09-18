@@ -44,8 +44,13 @@ describe('taproom actions', () =>{
     });
   });
   it('selectKeg should create SELECT_KEG action', () => {
-    expect(actions.selectKeg(1)).toEqual({
+    expect(actions.selectKeg(kegData)).toEqual({
       type: a.SELECT_KEG,
+      name: "Synergy",
+      brand: "GT's",
+      price: 3,
+      flavor: "Cosmic Cranberry",
+      quantity: 120,
       id: 1
     })
   });
