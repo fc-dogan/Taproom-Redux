@@ -43,4 +43,10 @@ describe('taproom actions', () =>{
       type: a.EDITING_KEG
     });
   });
+  it('selectKeg should create SELECT_KEG action', () => {
+    expect(actions.selectKeg(1)).toEqual({
+      type: a.SELECT_KEG,
+      id: 1
+    })
+  });
 })
