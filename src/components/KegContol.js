@@ -27,88 +27,122 @@ class KegControl extends React.Component {
   }
 
   handleClick = () =>{
+    const { dispatch } = this.props;
     if(this.state.selectedKeg != null){
-      this.setState({
-        formVisibleOnPage: false,
-        selectedKeg: null,
-        editingKeg: false
-      })
+      const action2 = a.unselectKeg();
+      dispatch(action2);
+      const action3 = a.editingKeg();
+      dispatch(action3);
+      // this.setState({
+      //   formVisibleOnPage: false,
+      //   selectedKeg: null,
+      //   editingKeg: false
+      // })
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage
-      }));
+      const action = a.toggleForm();
+      dispatch(action);
+      // this.setState(prevState => ({
+      //   formVisibleOnPage: !prevState.formVisibleOnPage
+      // }));
     }
     }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newKegList = this.state.allKombuchaList.concat(newKeg);
-    this.setState({
-      allKombuchaList: newKegList,
-      formVisibleOnPage: false
-    });
+    const { dispatch } = this.props;
+    const action =a.addKeg(newKeg);
+    dispatch(action);
+    // const newKegList = this.state.allKombuchaList.concat(newKeg);
+    // this.setState({
+    //   allKombuchaList: newKegList,
+    //   formVisibleOnPage: false
+    // });
   }
 
   handleChangingSelectedKeg = (id) => {
-    const newSelectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id)[0];
-    this.setState({
-      selectedKeg: newSelectedKeg
-    })
+    const { dispatch } = this.props;
+    // const newSelectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id)[0];
+    const action =a.selectKeg(id);
+    dispatch(action);
+    // this.setState({
+    //   selectedKeg: newSelectedKeg
+    // })
   }
 
   handleDecreamentKegQuantity = (id) =>{
+    const { dispatch } = this.props;
     const newselectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id )[0];
     let updatedKeg = null;
     if(newselectedKeg.quantity > 1){
-      updatedKeg = {...newselectedKeg, quantity: newselectedKeg.quantity - 1}
+      const action = a.sellKeg(id);
+      dispatch(action);
+      // updatedKeg = {...newselectedKeg, quantity: newselectedKeg.quantity - 1}
        
     }  else {
       updatedKeg = {...newselectedKeg, quantity:null, quantityMessage: "Out of Stock"}
     };
     
     const newKegList = this.state.allKombuchaList.filter( keg =>
-      keg.id !== id).concat(updatedKeg)
-    this.setState({
-      allKombuchaList: newKegList
-    })
+      keg.id !== id).concat(updatedKeg);
+    const action2 =a.addKeg(newKegList);
+    dispatch(action2);
+    // this.setState({
+    //   allKombuchaList: newKegList
+    // })
   }
 
   handleEditClick = () => {
-    this.setState({
-      editingKeg: true
-    })
+    const { dispatch } = this.props;
+    const action =a.editingKeg();
+    dispatch(action);
+    // this.setState({
+    //   editingKeg: true
+    // })
   }
 
   handleEditingKegInList = (kegToEdit) =>{
     const editedKombuchaList = this.state.allKombuchaList.filter(keg => keg.id !== this.state.selectedKeg.id).concat(kegToEdit);
-    this.setState({
-      allKombuchaList: editedKombuchaList,
-      editingKeg: false,
-      selectedKeg: null
-    })
+    const { dispatch } = this.props;
+    const action =a.addKeg(editedKombuchaList);
+    dispatch(action);
+    const action2 =a.editingKeg();
+    dispatch(action2);
+    const action3 = a.unselectKeg();
+      dispatch(action3);
+    // this.setState({
+    //   allKombuchaList: editedKombuchaList,
+    //   editingKeg: false,
+    //   selectedKeg: null
+    // })
   }
 
   handleDeletingKegInList = (id) => {
-    const newKombuchaList = this.state.allKombuchaList.filter(keg => keg.id !== id);
-    this.setState({
-      allKombuchaList: newKombuchaList,
-      selectedKeg: null
-    })
+    const { dispatch } = this.props;
+    const action = a.deleteKeg(id);
+    dispatch(action);
+    const action2 = a.unselectKeg();
+    dispatch(action2);
+    // const newKombuchaList = this.state.allKombuchaList.filter(keg => keg.id !== id);
+
+    // this.setState({
+    //   allKombuchaList: newKombuchaList,
+    //   selectedKeg: null
+    // })
   }
 
   render(){
     let currentlyVisibleState= null;
     let buttonText = null;
-    if(this.state.editingKeg){
-      currentlyVisibleState = <EditKegForm selectedKeg={this.state.selectedKeg} onEditKeg={this.handleEditingKegInList}/>
+    if(this.props.editingKeg){
+      currentlyVisibleState = <EditKegForm selectedKeg={this.props.selectedKeg} onEditKeg={this.handleEditingKegInList}/>
       buttonText = "Return to Keg list";
-    } else if(this.state.selectedKeg !== null) {
-      currentlyVisibleState = <KegDetail selectedKeg={this.state.selectedKeg} onClickingEdit={this.handleEditClick} onDeletingKeg={this.handleDeletingKegInList} />
+    } else if(this.props.selectedKeg !== null) {
+      currentlyVisibleState = <KegDetail selectedKeg={this.props.selectedKeg} onClickingEdit={this.handleEditClick} onDeletingKeg={this.handleDeletingKegInList} />
       buttonText = "Return to Keg list";
-    } else if(this.state.formVisibleOnPage){
+    } else if(this.props.formVisibleOnPage){
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "Return to Keg list";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.allKombuchaList} onKegSelection={this.handleChangingSelectedKeg} onchangeKegQuantity={this.handleDecreamentKegQuantity}/>
+      currentlyVisibleState = <KegList kegList={this.props.allKombuchaList} onKegSelection={this.handleChangingSelectedKeg} onchangeKegQuantity={this.handleDecreamentKegQuantity}/>
       buttonText = "Add Keg";
     }
     return (
