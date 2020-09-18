@@ -32,4 +32,10 @@ describe('taproom actions', () =>{
       type: a.TOGGLE_FORM
     });
   });
+  it('sellKeg should create SELL_KEG action', () => {
+    expect(actions.sellKeg(1)).toEqual({
+      type: a.SELL_KEG,
+      id: 1
+    })
+  });
 })
