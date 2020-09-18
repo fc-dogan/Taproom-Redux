@@ -25,3 +25,6 @@ export const sellKeg = (id) => ({
   type: a.SELL_KEG,
   id: id
 });
+export const editingKeg = () => ({
+  type: a.EDITING_KEG
+});
