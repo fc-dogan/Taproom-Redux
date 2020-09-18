@@ -51,6 +51,8 @@ class KegControl extends React.Component {
     const { dispatch } = this.props;
     const action =a.addKeg(newKeg);
     dispatch(action);
+    const action2 = a.toggleForm();
+    dispatch(action2);
     // const newKegList = this.state.allKombuchaList.concat(newKeg);
     // this.setState({
     //   allKombuchaList: newKegList,
