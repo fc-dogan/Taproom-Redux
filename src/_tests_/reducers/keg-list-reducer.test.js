@@ -1,4 +1,5 @@
 import kegListReducer from '../../reducers/kegListReducer';
+import * as a from '../../actions/ActionTypes';
 
 describe('kegListReducer', () => {
   test('Should return default state if there is no action type passed into the reducer', () => {
@@ -18,7 +19,7 @@ describe('kegListReducer', () => {
   test('Should successfully add a new keg data to allKegList', () => {
     const { name, brand, price, flavor, quantity, id } = kegData;
     action ={
-      type: 'ADD_KEG',
+      type: a.ADD_KEG,
       name: name,
       brand: brand,
       price: price,
