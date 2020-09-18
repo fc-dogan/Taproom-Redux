@@ -6,8 +6,11 @@ export default (state=null ,action) => {
     case a.SELECT_KEG :
       const newState = state[id];
       return newState;
+    case a.SELL_KEG:
+      const nState = state[id];
+      const updatedKeg = {...nState, quantity: nState.quantity - 1}
+      return updatedKeg;
     default:
       return state;
   }
-  
 }
