@@ -38,4 +38,9 @@ describe('taproom actions', () =>{
       id: 1
     })
   });
+  it('editingKeg should create EDITING_KEG action', () => {
+    expect(actions.editingKeg()).toEqual({
+      type: a.EDITING_KEG
+    });
+  });
 })
