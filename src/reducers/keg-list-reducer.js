@@ -18,6 +18,10 @@ export default (state = {}, action) => {
       const newState = { ...state };
       delete newState[id];
       return newState;
+    case a.SELL_KEG:
+      const decrasedQuantity = state[id].quantity - 1;
+      const updatedKegList = {...state, [id]:{...state[id], quantity:decrasedQuantity}}
+      return updatedKegList;
     default:
       return state;
   }

@@ -66,4 +66,24 @@ describe('kegListReducer', () => {
       id :2 }
     });
   });
+  test('should successfully decrement pint quantity by 1', () => {
+    action = {
+      type: a.SELL_KEG,
+      id: 1
+    };
+    expect(kegListReducer(currentState, action)).toEqual({
+      1: {name: "Synergy",
+      brand: "GT's",
+      price: 3,
+      flavor: "Cosmic Cranberry",
+      quantity: 119,
+      id: 1},
+    2: { name: "Ginger",
+      brand: "GT's",
+      price: 2,
+      flavor: 'ginger',
+      quantity: 110,
+      id :2 },
+    });
+  });
 });
