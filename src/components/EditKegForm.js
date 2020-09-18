@@ -20,13 +20,15 @@ function EditKegForm(props){
   return (
     <React.Fragment>
       <ReusableForm formSubmissionHandler={handleEditKegFormSubmission} buttonText="Update" />
+      <button onClick ={() => props.onClickToList()} >Return to List</button>
     </React.Fragment>
   )
 }
 
 EditKegForm.propTypes = {
   selectedKeg: PropTypes.object,
-  onEditKeg: PropTypes.func
+  onEditKeg: PropTypes.func,
+  onClickToList: PropTypes.func
 }
 
 export default EditKegForm; 

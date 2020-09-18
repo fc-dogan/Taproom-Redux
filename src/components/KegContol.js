@@ -36,6 +36,12 @@ function KegControl (props) {
     const action2 = a.unselectKeg();
       dispatch(action2);
   }
+  const handleClickToListfromEdit = () =>{
+    const action2 = a.unselectKeg();
+    dispatch(action2);
+    const action3 = a.editingKeg();
+    dispatch(action3);
+  }
 
  const handleAddingNewKegToList = (newKeg) => {
     const action =a.addKeg(newKeg);
@@ -50,45 +56,19 @@ function KegControl (props) {
   }
 
   const handleChangingSelectedKeg = (id) => {
-    // const newSelectedKeg = this.state.allKombuchaList.filter(keg => keg.id === id)[0];
     const newSelectedKeg = props.allKombuchaList[id]
     const action =a.selectKeg(newSelectedKeg);
     dispatch(action);
-    // this.setState({
-    //   selectedKeg: newSelectedKeg
-    // })
   }
 
   const handleDecreamentKegQuantity = (id) =>{
     const action = a.sellKeg(id);
       dispatch(action);
-    // const newselectedKeg = props.allKombuchaList[id]
-    // let updatedKeg = null;
-    // console.log(newselectedKeg)
-    // if(newselectedKeg.quantity > 1){
-    //   const action = a.sellKeg(id);
-    //   dispatch(action);
-    //   // updatedKeg = {...newselectedKeg, quantity: newselectedKeg.quantity - 1}
-       
-    // }  else {
-    //   updatedKeg = {...newselectedKeg, quantity:null, quantityMessage: "Out of Stock"}
-    // };
-    
-    // const newKegList = this.state.allKombuchaList.filter( keg =>
-    //   keg.id !== id).concat(updatedKeg);
-    // const action2 =a.addKeg(newKegList);
-    // dispatch(action2);
-    // // this.setState({
-    // //   allKombuchaList: newKegList
-    // // })
   }
 
   const handleEditClick = () => {
     const action =a.editingKeg();
     dispatch(action);
-    // this.setState({
-    //   editingKeg: true
-    // })
   }
 
   const handleEditingKegInList = (kegToEdit) =>{
@@ -125,8 +105,9 @@ function KegControl (props) {
     let currentlyVisibleState= null;
     let buttonText = null;
     if(props.editingKeg){
-      currentlyVisibleState = <EditKegForm selectedKeg={props.selectedKeg} onEditKeg={handleEditingKegInList}/>
-      buttonText = "Return to Keg list";
+      currentlyVisibleState = <EditKegForm selectedKeg={props.selectedKeg} onEditKeg={handleEditingKegInList}
+      onClickToList={handleClickToListfromEdit}/>
+      // buttonText = "Return to Keg list";
     } else if(props.selectedKeg != null ) {
       currentlyVisibleState = <KegDetail selectedKeg={props.selectedKeg} onClickingEdit={handleEditClick} onDeletingKeg={handleDeletingKegInList} 
       onClickToList={handleClickToListfromDetail} />
