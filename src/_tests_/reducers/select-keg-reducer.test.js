@@ -18,6 +18,11 @@ describe('selectKegReducer', () => {
   test('Should successfully update selected keg ', () =>{
     action = {
       type: a.SELECT_KEG,
+      name: "Synergy",
+      brand: "GT's",
+      price: 3,
+      flavor: "Cosmic Cranberry",
+      quantity: 120,
       id: 1
     };
     expect(selectKegReducer(currentState, action )).toEqual({
