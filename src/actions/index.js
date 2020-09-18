@@ -33,4 +33,7 @@ export const selectKeg = (id) => {
     type: a.SELECT_KEG,
     id
   }
-}
+};
+export const unselectKeg = () => ({
+  type: a.UNSELECT_KEG
+});

@@ -9,13 +9,7 @@ describe('selectKegReducer', () => {
       price: 3,
       flavor: "Cosmic Cranberry",
       quantity: 120,
-      id: 1},
-    2: { name: "Ginger",
-      brand: "GT's",
-      price: 2,
-      flavor: 'ginger',
-      quantity: 110,
-      id :2 },
+      id: 1}
   }
 
   test('Should return default state if there is no action type passed into the reducer', () => {
@@ -48,5 +42,11 @@ describe('selectKegReducer', () => {
       quantity: 119,
       id: 1
     })
-  })
+  });
+  test('should reset selected keg to null', () => {
+    action = {
+      type: a.UNSELECT_KEG
+    };
+    expect(selectKegReducer(currentState, action)).toEqual(null);
+  });
 });
