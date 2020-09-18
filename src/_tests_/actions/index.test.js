@@ -26,5 +26,10 @@ describe('taproom actions', () =>{
       type: a.DELETE_KEG,
       id: 1
     })
-  })
+  });
+  it('toggleForm should create TOGGLE_FORM action', () => {
+    expect(actions.toggleForm()).toEqual({
+      type: a.TOGGLE_FORM
+    });
+  });
 })
