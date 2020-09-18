@@ -7,7 +7,7 @@ describe("rootReducer", () => {
       allKombuchaList: {},
       formVisibleOnPage: false,
       selectedKeg: null,
-      // editingKeg: false
+      editingKeg: false
     });
   });
 
