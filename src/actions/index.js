@@ -11,8 +11,7 @@ export const addKeg = (kegData) =>{
     quantity: quantity,
     id: id
   }
-}
-
+};
 export const deleteKeg = (id) => {
   return {
     type: a.DELETE_KEG,
@@ -21,4 +20,8 @@ export const deleteKeg = (id) => {
 }
 export const toggleForm = () => ({
   type: a.TOGGLE_FORM
+});
+export const sellKeg = (id) => ({
+  type: a.SELL_KEG,
+  id: id
 });
