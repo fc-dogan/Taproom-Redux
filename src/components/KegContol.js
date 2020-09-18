@@ -3,23 +3,26 @@ import KegList from './KegList';
 import NewKegForm from './NewKegFrom';
 import KegDetail from './KegDetail';
 import EditKegForm from './EditKegForm';
+import { connect } from 'react-redux';
+import * as a from './../actions';
+import PropTypes from "prop-types";
 
 class KegControl extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      formVisibleOnPage: false,
-      allKombuchaList: [
-        {
-          name: "Synergy",
-          brand: "GT's",
-          price: 3,
-          flavor: "Cosmic Cranberry",
-          quantity: 120
-        }
-      ],
-      selectedKeg: null,
-      editingKeg: false
+      // formVisibleOnPage: false,
+      // allKombuchaList: [
+      //   {
+      //     name: "Synergy",
+      //     brand: "GT's",
+      //     price: 3,
+      //     flavor: "Cosmic Cranberry",
+      //     quantity: 120
+      //   }
+      // ],
+      // selectedKeg: null,
+      // editingKeg: false
     }
   }
 
@@ -117,5 +120,23 @@ class KegControl extends React.Component {
     )
   }
 }
+
+KegControl.propTypes = {
+  allKombuchaList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool,
+  selectedKeg: PropTypes.object,
+  editingKeg: PropTypes.bool
+};
+
+const mapStateToProps = state => {
+  return {
+    allKombuchaList: state.allKombuchaList,
+    formVisibleOnPage: state.formVisibleOnPage,
+    selectedKeg: state.selectedKeg,
+    editingKeg: state.editingKeg
+  }
+}
+
+KegControl = connect(mapStateToProps)(KegControl);
 
 export default KegControl; 
