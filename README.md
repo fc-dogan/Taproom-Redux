@@ -1,12 +1,12 @@
-# _Tap Room _
+# _Tap Room with Redux_
 
-#### _A React application for kombucha store to track their kegs._ 
+#### _A React Redux application for kombucha store to track their kegs._ 
 
-#### _September 11, 2020 | Fatma C. Dogan_
+#### _September 18, 2020 | Fatma C. Dogan_
 
 ## Description
 
-_An application built in React to track a taproom's taps by name, brand, price, flavor, and quantity. The application utilizes a tap list, a new tap form, and tap-specific details view to monitor inventory._
+_An application built in React Redux to track a taproom's taps by name, brand, price, flavor, and quantity. The application utilizes a tap list, a new tap form, and tap-specific details view to monitor inventory._
 
 
 ### Component Diagram
@@ -47,8 +47,8 @@ _Please visit the [Node.js website](https://nodejs.org/en/download/) for install
 _Clone this repository via Terminal using the following commands:_
 ```
 cd desktop
-<!-- git clone https://github.com/fc-dogan/Tap-room -->
-<!-- cd Tap-room -->
+git clone https://github.com/fc-dogan/Taproom-Redux
+cd Taproom-Redux
 ```
 
 _Next, install npm at the project's root directory, and start the server:_
@@ -68,6 +68,8 @@ code .
 ## Technologies Used
 
 * _React_
+* _Redux_
+* _Jest_
 * _JavaScript_
 * _WebPack_
 * _CSS_
