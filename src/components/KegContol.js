@@ -70,33 +70,43 @@ function KegControl (props) {
     currentlyVisibleState = 
     <div>
       <EditKegForm selectedKeg={props.selectedKeg} onEditKeg={handleEditingKegInList} />
-      <Button  onClick ={handleClickToListfromEdit}>Return to List</Button>
+      <Button  onClick ={handleClickToListfromEdit} variant="outline-dark">Return to List</Button>
     </div>
   } 
   else if(props.selectedKeg != null ) {
     currentlyVisibleState = 
     <div>
       <KegDetail selectedKeg={props.selectedKeg} onClickingEdit={handleEditClick} onDeletingKeg={handleDeletingKegInList} />
-      <Button onClick ={handleClickToListfromDetail}>Return to List</Button>
+      <br/>
+      <Button onClick ={handleClickToListfromDetail} variant="outline-dark">Return to List</Button>
       </div>
   } 
   else if(props.formVisibleOnPage){
     currentlyVisibleState = 
     <div>
       <NewKegForm onNewKegCreation={handleAddingNewKegToList}/>
-      <Button onClick={handleClick}>Return to List</Button>
+      <Button onClick={handleClick} variant="outline-dark">Return to List</Button>
     </div>
   } 
   else {
     currentlyVisibleState =
     <div>
+      <Button onClick={handleClick} variant="outline-dark">Add New Keg</Button>
       <KegList kegList={props.allKombuchaList} onKegSelection={handleChangingSelectedKeg} onchangeKegQuantity={handleDecreamentKegQuantity}/>
-      <Button onClick={handleClick}>Add</Button>
     </div>
   }
+
+  const kegControlStyle= {
+    width: '80vw',
+    height: 'auto',
+    margin: '3vw 10vw',
+  }
+
   return (
     <React.Fragment>
-      {currentlyVisibleState}
+      <div style={kegControlStyle}>
+        {currentlyVisibleState}
+      </div>
     </React.Fragment>
   )
 }

@@ -1,17 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container, Button, Card } from 'react-bootstrap';
 
 function KegDetail(props){
-  const { selectedKeg , onClickingEdit, onDeletingKeg, onClickToList} = props;
+  const { selectedKeg , onClickingEdit, onDeletingKeg} = props;
   return (
     <React.Fragment>  
-      <h3><strong>Name:</strong> {selectedKeg.name}</h3>
-      <h3><strong>Brand:</strong> {selectedKeg.brand}</h3>
-      <h3><strong>Price:</strong> ${selectedKeg.price}</h3>
-      <h3><strong>Flavor:</strong> {selectedKeg.flavor}</h3>
-      <h3><strong>pints in keg:</strong> {selectedKeg.quantity}</h3>
-      <button onClick={() => onClickingEdit(selectedKeg.id)}>Edit</button>
-      <button onClick={() =>  onDeletingKeg(selectedKeg.id)}>Delete</button>
+      <Container>
+        <Card style={{ backgroundColor: '#eadaba', borderColor: '#333' }} >
+          <Card.Body>
+            <Card.Title><strong>Name:</strong> {selectedKeg.name}</Card.Title>
+              <Card.Text>
+                <h5><strong>Brand:</strong> {selectedKeg.brand}</h5>
+                <h5><strong>Price:</strong> ${selectedKeg.price}</h5>
+                <h5><strong>Flavor:</strong> {selectedKeg.flavor}</h5>
+                <h5><strong>pints in keg:</strong> {selectedKeg.quantity}</h5>
+              </Card.Text>
+            <Button onClick={() => onClickingEdit(selectedKeg.id)} variant="outline-dark">Edit</Button>
+            <Button onClick={() =>  onDeletingKeg(selectedKeg.id)} variant="outline-dark">Delete</Button>
+          </Card.Body>
+         </Card>
+      </Container>
     </React.Fragment>
   )
 }

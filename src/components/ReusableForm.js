@@ -30,7 +30,7 @@ function ReusableForm(props) {
             name='flavor'
             placeholder='flavor' />
         </Form.Group>
-        <Button type='submit'>{props.buttonText}</Button>
+        <Button type='submit' variant="outline-dark">{props.buttonText}</Button>
       </Form>
     </React.Fragment>
   );
