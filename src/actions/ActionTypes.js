@@ -5,3 +5,5 @@ export const SELECT_KEG = "SELECT_KEG";
 export const UNSELECT_KEG = "UNSELECT_KEG";
 export const EDITING_KEG = 'EDITING_KEG';
 export const SELL_KEG = 'SELL_KEG';
+
+ 

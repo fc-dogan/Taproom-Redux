@@ -6,6 +6,7 @@ import EditKegForm from './EditKegForm';
 import { connect } from 'react-redux';
 import * as a from './../actions';
 import PropTypes from "prop-types";
+import { Button } from 'react-bootstrap';
 
 function KegControl (props) {
   const { dispatch } = props;
@@ -69,28 +70,28 @@ function KegControl (props) {
     currentlyVisibleState = 
     <div>
       <EditKegForm selectedKeg={props.selectedKeg} onEditKeg={handleEditingKegInList} />
-      <button onClick ={handleClickToListfromEdit}>Return to List</button>
+      <Button  onClick ={handleClickToListfromEdit}>Return to List</Button>
     </div>
   } 
   else if(props.selectedKeg != null ) {
     currentlyVisibleState = 
     <div>
       <KegDetail selectedKeg={props.selectedKeg} onClickingEdit={handleEditClick} onDeletingKeg={handleDeletingKegInList} />
-      <button onClick ={handleClickToListfromDetail}>Return to List</button>
+      <Button onClick ={handleClickToListfromDetail}>Return to List</Button>
       </div>
   } 
   else if(props.formVisibleOnPage){
     currentlyVisibleState = 
     <div>
       <NewKegForm onNewKegCreation={handleAddingNewKegToList}/>
-      <button onClick={handleClick}>Return to List</button>
+      <Button onClick={handleClick}>Return to List</Button>
     </div>
   } 
   else {
     currentlyVisibleState =
     <div>
       <KegList kegList={props.allKombuchaList} onKegSelection={handleChangingSelectedKeg} onchangeKegQuantity={handleDecreamentKegQuantity}/>
-      <button onClick={handleClick}>Add</button>
+      <Button onClick={handleClick}>Add</Button>
     </div>
   }
   return (
