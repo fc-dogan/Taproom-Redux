@@ -5,17 +5,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function Keg(props) {
+  
+  const kegStyles = {
+    textAlign: 'center',
+    border: '2px solid #3C5C60',
+    width: '300px',
+    height: '300px',
+    padding: '2%',
+    margin: '2%',
+  };
+  
+  function inStock(quantity) {
+    return quantity > 0 ? <Button onClick={() => props.sellKeg(props.id)} variant="outline-secondary" >Sell</Button>
+    : "out of stock"
+  };
+
+
   return (
     <React.Fragment>
       <div>
         <Col style={{padding: '10px'}}>
-          <Card style={{ width: '18rem', backgroundColor: '#eadaba', borderColor: '#333' }} >
-            <Card.Title>Name: {props.name}</Card.Title>
+          <Card style={kegStyles} >
+            <Card.Title> {props.name}</Card.Title>
             <Card.Text>
-              <p><strong>Price:</strong> ${props.price}</p>
-              <p><strong>pints in keg:</strong> {props.quantity}{props.quantityMessage}</p>
+                <strong>Price:</strong> ${props.price} <br/>
+                <strong>pints in keg:</strong> { props.quantity > 0 ? props.quantity : "out of stock" }
             </Card.Text>
-            <Button onClick={() => props.sellKeg(props.id)} variant="outline-secondary" >Sell</Button>
+            {inStock(props.quantity)}
             <Button onClick={() => props.whenKegClicked(props.id)} variant="outline-secondary" >Details</Button>
           </Card>
         </Col>
@@ -33,7 +49,6 @@ Keg.propTypes = {
   price: PropTypes.number,
   flavor: PropTypes.string,
   quantity: PropTypes.number,
-  quantityMessage: PropTypes.string,
   id: PropTypes.string,
 }
 

@@ -4,24 +4,31 @@ import { Container, Button, Card } from 'react-bootstrap';
 
 function KegDetail(props){
   const { selectedKeg , onClickingEdit, onDeletingKeg} = props;
+
+  const kegDetailStyles = {
+    marginTop: '2%',
+    // textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+
   return (
-    <React.Fragment>  
       <Container>
-        <Card style={{ backgroundColor: '#eadaba', borderColor: '#333' }} >
+        <Card style={kegDetailStyles} >
           <Card.Body>
-            <Card.Title><strong>Name:</strong> {selectedKeg.name}</Card.Title>
-              <Card.Text>
-                <h5><strong>Brand:</strong> {selectedKeg.brand}</h5>
-                <h5><strong>Price:</strong> ${selectedKeg.price}</h5>
-                <h5><strong>Flavor:</strong> {selectedKeg.flavor}</h5>
-                <h5><strong>pints in keg:</strong> {selectedKeg.quantity}</h5>
+            <Card.Title style={{textAlign: 'center'}}><strong>{selectedKeg.name}</strong> </Card.Title>
+              <Card.Text> 
+                <li>Brand: <strong>{selectedKeg.brand}</strong></li>
+                <li>Price: <strong>${selectedKeg.price}</strong></li>
+                <li>Flavor:<strong>{selectedKeg.flavor}</strong> </li>
+                <li>Pints in keg:<strong> {selectedKeg.quantity}</strong></li>               
               </Card.Text>
             <Button onClick={() => onClickingEdit(selectedKeg.id)} variant="outline-dark">Edit</Button>
             <Button onClick={() =>  onDeletingKeg(selectedKeg.id)} variant="outline-dark">Delete</Button>
           </Card.Body>
          </Card>
       </Container>
-    </React.Fragment>
   )
 }
 

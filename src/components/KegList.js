@@ -10,6 +10,7 @@ function KegList(props){
       {/* <h2 className="text-center" >Keg list</h2> */}
         <Row >
           {Object.values(props.kegList).map(keg => {
+            console.log(keg)
             return <Keg 
               whenKegClicked = {props.onKegSelection}
               sellKeg = {props.onchangeKegQuantity}
@@ -18,7 +19,6 @@ function KegList(props){
               price={keg.price} 
               flavor={keg.flavor} 
               quantity={keg.quantity}
-              quantityMessage={keg.quantityMessage}
               id= {keg.id}
               key= {keg.id}
               />

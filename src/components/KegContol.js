@@ -127,6 +127,4 @@ const mapStateToProps = state => {
   }
 }
 
-KegControl = connect(mapStateToProps)(KegControl);
-
-export default KegControl; 
+export default connect(mapStateToProps)(KegControl); 
