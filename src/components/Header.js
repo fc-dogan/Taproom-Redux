@@ -4,7 +4,8 @@ const headerStyle ={
   padding: ".66rem 0",
   textAlign: "center",
   backgroundColor: "#3C5C60",
-  color: "#fff"
+  color: "#fff",
+  fontFamily: "'Montserrat', sans-serif",
 }
 
 function Header() {

@@ -26,7 +26,7 @@ function Keg(props) {
       <div>
         <Col style={{padding: '10px'}}>
           <Card style={kegStyles} >
-            <Card.Title> {props.name}</Card.Title>
+            <Card.Title style={{backgroundColor: '#8FABAF', padding: '8px'}}> {props.name}</Card.Title>
             <Card.Text>
                 <strong>Price:</strong> ${props.price} <br/>
                 <strong>pints in keg:</strong> { props.quantity > 0 ? props.quantity : "out of stock" }
